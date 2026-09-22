@@ -169,30 +169,30 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 #   }
 # }
 
-resource "aws_s3_object" "indexpage" {
-  bucket = aws_s3_bucket.cvbucket4949494.id
-  key    = "index.html"
-  source = "webfiles/index.html"
-  content_type = "text/html"
-}
-resource "aws_s3_object" "error404" {
-  bucket = aws_s3_bucket.cvbucket4949494.id
-  key    = "404.html"
-  source = "webfiles/404.html"
-  content_type = "text/html"
-}
-resource "aws_s3_object" "scriptjs" {
-  bucket = aws_s3_bucket.cvbucket4949494.id
-  key    = "script.js"
-  source = "webfiles/script.js"
-  content_type = "application/javascript"
-}
-resource "aws_s3_object" "stylecss" {
-  bucket = aws_s3_bucket.cvbucket4949494.id
-  key    = "styling.css"
-  source = "webfiles/styling.css"
-  content_type = "text/css"
-}
+# resource "aws_s3_object" "indexpage" {
+#   bucket = aws_s3_bucket.cvbucket4949494.id
+#   key    = "index.html"
+#   source = "webfiles/index.html"
+#   content_type = "text/html"
+# }
+# resource "aws_s3_object" "error404" {
+#   bucket = aws_s3_bucket.cvbucket4949494.id
+#   key    = "404.html"
+#   source = "webfiles/404.html"
+#   content_type = "text/html"
+# }
+# resource "aws_s3_object" "scriptjs" {
+#   bucket = aws_s3_bucket.cvbucket4949494.id
+#   key    = "script.js"
+#   source = "webfiles/script.js"
+#   content_type = "application/javascript"
+# }
+# resource "aws_s3_object" "stylecss" {
+#   bucket = aws_s3_bucket.cvbucket4949494.id
+#   key    = "styling.css"
+#   source = "webfiles/styling.css"
+#   content_type = "text/css"
+# }
 
 # data "aws_acm_certificate" "my_domain" {
 #   domain   = "*.${local.my_domain}"
