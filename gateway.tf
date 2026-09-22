@@ -7,7 +7,6 @@ resource "aws_apigatewayv2_api" "aws_apigatewayv2_api" {
     allow_headers = ["*", "access-control-allow-origin", "content-type"]
     allow_methods = ["POST", "OPTIONS"]
   }
-
 }
 
 resource "aws_apigatewayv2_integration" "cvintegration" {
@@ -53,6 +52,12 @@ resource "aws_apigatewayv2_stage" "cvstage" {
       integrationError = "$context.integrationErrorMessage"
     })
   }
+  default_route_settings {
+    detailed_metrics_enabled = true
+    logging_level            = "INFO"
+    throttling_rate_limit = 3
+    throttling_burst_limit = 3
+  }
 }
 
 resource "aws_cloudwatch_log_group" "api_gw" {
@@ -60,24 +65,3 @@ resource "aws_cloudwatch_log_group" "api_gw" {
   retention_in_days = 7
 }
 
-resource "aws_api_gateway_usage_plan" "example" {
-  name         = "my-usage-plan"
-  description  = "my description"
-  product_code = "MYCODE"
-
-  api_stages {
-    api_id = aws_apigatewayv2_api.aws_apigatewayv2_api.id
-    stage  = aws_apigatewayv2_stage.cvstage.id
-  }
-
-#   quota_settings {
-#     limit  = 20
-#     offset = 2
-#     period = "WEEK"
-#   }
-
-  throttle_settings {
-    # burst_limit = 5
-    rate_limit  = 3
-  }
-}
