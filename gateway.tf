@@ -67,7 +67,7 @@ resource "aws_api_gateway_usage_plan" "example" {
 
   api_stages {
     api_id = aws_api_gatewayv2_api.aws_apigatewayv2_api.id
-    stage  = aws_apigateway_stage.cvstage.id
+    stage  = aws_apigatewayv2_stage.cvstage.id
   }
 
 #   quota_settings {
