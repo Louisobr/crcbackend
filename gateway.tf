@@ -55,8 +55,8 @@ resource "aws_apigatewayv2_stage" "cvstage" {
   default_route_settings {
     detailed_metrics_enabled = true
     logging_level            = "INFO"
-    throttling_rate_limit = 3
-    throttling_burst_limit = 3
+    throttling_rate_limit = 1
+    throttling_burst_limit = 1
   }
 }
 
