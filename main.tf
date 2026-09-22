@@ -32,7 +32,7 @@ resource "aws_s3_bucket" "cvbucketstate" {
 
 terraform {
   backend "s3" {
-    bucket         = aws_s3_bucket.cvbucketstate.bucket.id
+    bucket         = "cvbucketstate4949494state"
     key            = "terraform.tfstate"
     region         = "eu-west-2"
     use_lockfile   = true
