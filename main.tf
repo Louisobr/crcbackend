@@ -13,9 +13,26 @@ provider "aws" {
   region = "eu-west-2"
 }
 
+resource "aws_s3_bucket" "cvbucketstate" {
+  bucket = "cvbucketstate4949494state"
+  acl    = "private"
+
+  versioning {
+    enabled = true
+  }
+
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
+}
+
 terraform {
   backend "s3" {
-    bucket         = "your-terraform-state-bucket"
+    bucket         = aws_s3_bucket.cvbucketstate.bucket 
     key            = "terraform.tfstate"
     region         = "eu-west-2"
     use_lockfile   = true
