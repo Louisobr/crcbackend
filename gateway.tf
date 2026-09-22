@@ -59,3 +59,25 @@ resource "aws_cloudwatch_log_group" "api_gw" {
   name              = "/aws/api_gw/${aws_apigatewayv2_api.aws_apigatewayv2_api.name}"
   retention_in_days = 7
 }
+
+resource "aws_api_gateway_usage_plan" "example" {
+  name         = "my-usage-plan"
+  description  = "my description"
+  product_code = "MYCODE"
+
+  api_stages {
+    api_id = aws_api_gatewayv2_api.aws_apigatewayv2_api.id
+    stage  = aws_apigateway_stage.cvstage.id
+  }
+
+#   quota_settings {
+#     limit  = 20
+#     offset = 2
+#     period = "WEEK"
+#   }
+
+  throttle_settings {
+    # burst_limit = 5
+    rate_limit  = 3
+  }
+}
