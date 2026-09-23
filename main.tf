@@ -43,5 +43,5 @@ terraform {
 resource aws_ssm_parameter apiurl {
   name  = "apiuri"
   type  = "String"
-  value = aws_apigatewayv2_api.api_endpoint
+  value = aws_apigatewayv2_api.aws_apigatewayv2_api.api_endpoint
 }
