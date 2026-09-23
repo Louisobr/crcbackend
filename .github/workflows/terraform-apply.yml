@@ -31,4 +31,4 @@ jobs:
 
       - name: Trigger E2E Tests
         run: |
-          GH_TOKEN=${{ secrets.FRONTEND_PAT }} gh workflow run e2e.yml --repo username/frontend-repo
+          GH_TOKEN=${{ secrets.FRONTEND_PAT }} gh workflow run e2e.yml --repo crclobr/crcfrontend
