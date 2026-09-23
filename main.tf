@@ -46,10 +46,10 @@ resource aws_ssm_parameter apiurl {
   value = aws_apigatewayv2_api.aws_apigatewayv2_api.api_endpoint
 }
 
-resource aws_ssm_parameter gatewayid {
-  name  = "gatewayid"
+resource aws_ssm_parameter cloudfrontid {
+  name  = "cloudfrontid"
   type  = "String"
-  value = aws_apigatewayv2_api.aws_apigatewayv2_api.id
+  value = aws_cloudfront_distribution.s3_distribution.id
 }
 
 resource aws_s3_bucket testbucket {
