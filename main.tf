@@ -39,3 +39,9 @@ terraform {
     encrypt        = true
   }
 }
+
+resource aws_ssm_parameter apiurl {
+  name  = "apiuri"
+  type  = "String"
+  value = aws_apigatewayv2_api.api_endpoint
+}
