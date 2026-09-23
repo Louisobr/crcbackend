@@ -47,5 +47,5 @@ resource aws_ssm_parameter apiurl {
 }
 
 resource aws_s3_bucket testbucket {
-  bucket = "testa;lskdfj"
+  bucket = "testalskdfjuoooo"
 }
