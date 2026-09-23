@@ -46,6 +46,12 @@ resource aws_ssm_parameter apiurl {
   value = aws_apigatewayv2_api.aws_apigatewayv2_api.api_endpoint
 }
 
+resource aws_ssm_parameter gatewayid {
+  name  = "gatewayid"
+  type  = "String"
+  value = aws_apigatewayv2_api.aws_apigatewayv2_api.id
+}
+
 resource aws_s3_bucket testbucket {
   bucket = "testalskdfjuoooo"
 }
