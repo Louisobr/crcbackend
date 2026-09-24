@@ -52,6 +52,4 @@ resource aws_ssm_parameter cloudfrontid {
   value = aws_cloudfront_distribution.s3_distribution.id
 }
 
-resource aws_s3_bucket testbucket {
-  bucket = "testalskdfjuoooo"
-}
+
